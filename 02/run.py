@@ -4,7 +4,7 @@ with open("input", "r") as file:
 
 def check_password_1(min, max, letter, word):
     count = list(word).count(letter)
-    return bool(count >= min and count <= max)
+    return min <= count <= max
 
 
 def check_password_2(min, max, letter, word):
