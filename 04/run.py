@@ -6,28 +6,28 @@ def is_true(val):
     return val
 
 
-def split_height_string(val):
-    if (len(val)) < 4:
+def split_height_string(value_unit):
+    if (len(value_unit)) < 4:
         return [0, "cm"]
-    number = ""
-    for i in range(len(val) - 2):
-        number = number + val[i]
-    return [int(number), val[-2:]]
+    value = ""
+    for i in range(len(value_unit) - 2):
+        value = value + value_unit[i]
+    return [int(value), value_unit[-2:]]
 
 
-def is_hex_color(s):
-    ss = s[1:7]
-    if s[0] == "#":
-        return bool(int(ss, 16))
+def is_hex_color(value):
+    digits = value[1:7]
+    if value[0] == "#":
+        return bool(int(digits, 16))
     else:
         return False
 
 
-def is_eye_color(s):
-    return ["amb", "blu", "brn", "gry", "grn", "hzl", "oth"].count(s) > 0
+def is_eye_color(value):
+    return ["amb", "blu", "brn", "gry", "grn", "hzl", "oth"].count(value) > 0
 
 
-def validators(key_val_pair):
+def validate(key_val_pair):
     field = key_val_pair[0]
     value = key_val_pair[1]
     if field == "byr":
@@ -55,9 +55,9 @@ def is_valid_passport(passport_key_values):
     def no_cid(key_value):
         return key_value[0] != "cid"
     passport_key_values_no_cid = list(filter(no_cid, passport_key_values))
-    validations = list(map(validators, passport_key_values_no_cid))
     if len(passport_key_values_no_cid) == 7:
-        return validations.count(False) == 0
+        validation_statuses = list(map(validate, passport_key_values_no_cid))
+        return validation_statuses.count(False) == 0
     return False
 
 
