@@ -2,10 +2,6 @@ with open("input", "r") as file:
     data = file.read()
 
 
-def is_true(val):
-    return val
-
-
 def split_height_string(value_unit):
     if (len(value_unit)) < 4:
         return [0, "cm"]
