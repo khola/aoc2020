@@ -10,8 +10,7 @@ for group in groups:
 
 
 for group in groups:
-    all_answers = list(map(set, group.split("\n")))
-    commons = set.intersection(*all_answers)
+    commons = set.intersection(*map(set, group.split("\n")))
     count[1] += len(commons)
 
 print(count)
