@@ -49,16 +49,14 @@ for key, value in bags.items():
     if look_for_gold(value):
         count += 1
 
-print(count)
-
 
 def count_children(bag):
     c = 1
     if bag == False:
         return c
     for name, amount in bag.items():
-        c += count(bags[name]) * amount
+        c += count_children(bags[name]) * amount
     return c
 
 
-print(count(bags["shiny gold"]) - 1)
+print(count, count_children(bags["shiny gold"]) - 1)
