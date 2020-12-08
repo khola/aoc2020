@@ -35,7 +35,7 @@ for row in rows:
 def look_for_gold(bag):
     found = False
     if bag == False:
-        return False
+        return found
     if bag.get("shiny gold"):
         return True
     for key, value in bag.items():
