@@ -20,14 +20,12 @@ def rotate(dir, value):
     steps = int(value / 90) - 1
     x = waypoint["X"]
     y = waypoint["Y"]
-    rotationsR = [[y, -x], [-x, -y], [-y, x]]
-    rotationsL = rotationsR.copy()
-    rotationsL.reverse()
-    X, Y = [0, 0]
+    rotations = []
     if dir == "R":
-        X, Y = rotationsR[steps]
+        rotations = [[y, -x], [-x, -y], [-y, x]]
     elif dir == "L":
-        X, Y = rotationsL[steps]
+        rotations = [[-y, x], [-x, -y], [y, -x]]
+    X, Y = rotations[steps]
     waypoint["X"] = X
     waypoint["Y"] = Y
 
