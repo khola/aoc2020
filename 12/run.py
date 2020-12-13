@@ -1,5 +1,3 @@
-from math import copysign, prod
-
 with open("input", "r") as file:
     data = file.read().splitlines()
 
